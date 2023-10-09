@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: allme())); //all()-icon()
+void main() => runApp(MaterialApp(home: HomeScrin())); //all()-icon()
 
 class all extends StatefulWidget {
   const all({Key? key}) : super(key: key);
@@ -42,14 +42,14 @@ class _allState extends State<all> {
   }
 }
 
-class icon extends StatefulWidget {
-  const icon({Key? key}) : super(key: key);
+class iconoo extends StatefulWidget {
+  const iconoo({Key? key}) : super(key: key);
 
   @override
-  State<icon> createState() => _iconState();
+  State<iconoo> createState() => _iconooState();
 }
 
-class _iconState extends State<icon> {
+class _iconooState extends State<iconoo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -183,6 +183,169 @@ class _allmeState extends State<allme> {
           )
         ],
       ))),
+    );
+  }
+}
+
+class HomeScrin extends StatefulWidget {
+  const HomeScrin({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScrin> createState() => _HomeScrinState();
+}
+
+class _HomeScrinState extends State<HomeScrin> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  height: 178,
+                  width: 128,
+                  child: Image(
+                    image: AssetImage('img/doctor_image.png'),
+                    fit: BoxFit.contain,
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(16)),
+                ),
+                SizedBox(
+                  width: 34,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "D. Norah",
+                      style: TextStyle(fontSize: 34),
+                    ),
+                    Text(
+                      "Heart Specialist",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[700]),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      children: [
+                        CustStayl(
+                          icon: Icons.mail,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        CustStayl(
+                          icon: Icons.phone,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        CustStayl(
+                          icon: Icons.video_call,
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+            SizedBox(
+              height: 32,
+            ),
+            Text(
+              'About',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.grey[700])),
+            SizedBox(
+              height: 64,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.grey[700],
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Address",
+                              style: TextStyle(fontSize: 24),
+                            ),
+                            Text(
+                              "House 2 Road 5\nSaudi Arabia, Riyadh\nKing Fisat Hospital,",
+                              style: TextStyle(color: Colors.grey[700]),
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image(
+                    image: AssetImage('img/map_image.JPG'),
+                    height: 200,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      )),
+    );
+  }
+}
+
+class CustStayl extends StatelessWidget {
+  const CustStayl({
+    super.key,
+    required this.icon,
+  });
+  final IconData icon;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Icon(
+        icon,
+        color: Colors.orangeAccent,
+        size: 32,
+      ),
+      height: 48,
+      width: 48,
+      decoration: BoxDecoration(
+          color: Colors.deepOrange[50],
+          borderRadius: BorderRadius.circular(16)),
     );
   }
 }
